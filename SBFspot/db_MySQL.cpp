@@ -74,7 +74,7 @@ int db_SQL_Base::open(string server, string user, string pass, string database)
 		if (database.size() > 0)
 		{
 			m_dbHandle = mysql_init(NULL);
-			mysql_optionsv(mysql, MYSQL_READ_DEFAULT_FILE, NULL);
+			mysql_options(m_dbHandle, MYSQL_READ_DEFAULT_FILE, NULL);
 			if (!mysql_real_connect(m_dbHandle, server.c_str(), user.c_str(), pass.c_str(), database.c_str(), 0, NULL, 0))
 			{
 			    m_errortext = mysql_error(m_dbHandle);
