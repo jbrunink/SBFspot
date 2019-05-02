@@ -1,5 +1,5 @@
 /************************************************************************************************
-	SBFspot - Yet another tool to read power production of SMA® solar inverters
+	SBFspot - Yet another tool to read power production of SMAï¿½ solar inverters
 	(c)2012-2018, SBF
 
 	Latest version found at https://github.com/SBFspot/SBFspot
@@ -8,8 +8,8 @@
 	http://creativecommons.org/licenses/by-nc-sa/3.0/
 
 	You are free:
-		to Share — to copy, distribute and transmit the work
-		to Remix — to adapt the work
+		to Share ï¿½ to copy, distribute and transmit the work
+		to Remix ï¿½ to adapt the work
 	Under the following conditions:
 	Attribution:
 		You must attribute the work in the manner specified by the author or licensor
@@ -74,6 +74,7 @@ int db_SQL_Base::open(string server, string user, string pass, string database)
 		if (database.size() > 0)
 		{
 			m_dbHandle = mysql_init(NULL);
+			mysql_optionsv(mysql, MYSQL_READ_DEFAULT_FILE, NULL);
 			if (!mysql_real_connect(m_dbHandle, server.c_str(), user.c_str(), pass.c_str(), database.c_str(), 0, NULL, 0))
 			{
 			    m_errortext = mysql_error(m_dbHandle);
